@@ -1,5 +1,3 @@
-const Auth = require('./auth-router');
-
 /*
   If the user does not have a session saved in the server
 
@@ -45,7 +43,12 @@ function checkUsernameExists(req, res, next) {
   }
 */
 function checkPasswordLength(req, res, next) {
-  next()
+  const { password } = req.body
+  if(password.length < 3 || password === null){
+    res.status(422).json({ message: "Password must be longer than 3 chars" })
+  } else {
+    next()
+  }
 }
 
 // Don't forget to add these to the `exports` object so they can be required in other modules
