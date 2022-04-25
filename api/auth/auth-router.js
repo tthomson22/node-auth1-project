@@ -6,6 +6,7 @@ const {
   checkUsernameExists,
   checkUsernameFree,
 } = require('./auth-middleware')
+const User = require('../users/users-model')
 
 /**
   1 [POST] /api/auth/register { "username": "sue", "password": "1234" }
@@ -29,7 +30,7 @@ const {
     "message": "Password must be longer than 3 chars"
   }
  */
-router.post('/register', checkUsernameFree, checkPasswordLength, (req, res, next) => {
+router.post('/register', checkPasswordLength, checkUsernameFree,(req, res, next) => {
   res.json('register')
 })
 
