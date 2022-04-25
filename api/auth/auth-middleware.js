@@ -1,4 +1,4 @@
-const Users = require('../users/users-model');
+const Auth = require('./auth-router');
 
 /*
   If the user does not have a session saved in the server
@@ -9,7 +9,7 @@ const Users = require('../users/users-model');
   }
 */
 function restricted(req, res, next) {
-
+  next()
 }
 
 /*
@@ -20,8 +20,8 @@ function restricted(req, res, next) {
     "message": "Username taken"
   }
 */
-function checkUsernameFree() {
-
+function checkUsernameFree(req, res, next) {
+  next()
 }
 
 /*
@@ -32,8 +32,8 @@ function checkUsernameFree() {
     "message": "Invalid credentials"
   }
 */
-function checkUsernameExists() {
-
+function checkUsernameExists(req, res, next) {
+  next()
 }
 
 /*
@@ -44,8 +44,8 @@ function checkUsernameExists() {
     "message": "Password must be longer than 3 chars"
   }
 */
-function checkPasswordLength() {
-
+function checkPasswordLength(req, res, next) {
+  next()
 }
 
 // Don't forget to add these to the `exports` object so they can be required in other modules
